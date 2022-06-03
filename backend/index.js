@@ -42,5 +42,5 @@ if (isAuthEnabled()) {
 server.use('/', jsonServer.router('data.json'));
 
 server.listen(port, () =>
-  console.log(`server is listening to http://loclahost:${port}`)
+  console.log(`server is listening to http://localhost:${port}`)
 );
