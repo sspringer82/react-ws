@@ -1,6 +1,7 @@
 import produce from 'immer';
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Book, InputBook } from './Book';
+import BooksContext from './BooksContext';
 
 type ReturnValue = {
   books: Book[];
@@ -10,12 +11,13 @@ type ReturnValue = {
 };
 
 function useBooks(): ReturnValue {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useContext(BooksContext);
+
   useEffect(() => {
     fetch('http://localhost:3001/books')
       .then((response) => response.json())
       .then((data) => setBooks(data));
-  }, []);
+  }, [setBooks]);
 
   function handleRate(book: Book, rating: number): void {
     fetch(`http://localhost:3001/books/${book.id}`, {

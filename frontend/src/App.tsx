@@ -1,9 +1,16 @@
 import { ReactElement } from 'react';
 import './App.css';
+import BooksProvider from './BooksProvider';
 import List from './List';
+import Navigation from './Navigation';
 
 function App(): ReactElement {
-  return <List />;
+  return (
+    <BooksProvider>
+      <Navigation />
+      <List />
+    </BooksProvider>
+  );
 }
 
 export default App;
