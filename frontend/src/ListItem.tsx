@@ -6,32 +6,27 @@ import Rating from './Rating';
 
 type Props = {
   book: Book;
-  handleRate: (book: Book, rating: number) => void;
-  handleDelete: (book: Book) => void;
-  handleShowForm: (book: Book | null) => void;
+  onDelete: (book: Book) => void;
+  onEdit: (book: Book) => void;
+  onRate: (book: Book, rating: number) => void;
 };
 
-function ListItem({
-  book,
-  handleRate,
-  handleDelete,
-  handleShowForm,
-}: Props): ReactElement {
+function ListItem({ book, onDelete, onEdit, onRate }: Props): ReactElement {
   return (
     <TableRow>
       <TableCell>{book.title}</TableCell>
       <TableCell>{book.author}</TableCell>
       <TableCell>{book.isbn}</TableCell>
       <TableCell>
-        <Rating book={book} handleRate={handleRate} />
+        <Rating onRate={onRate} book={book} />
       </TableCell>
       <TableCell>
-        <IconButton onClick={() => handleDelete(book)}>
+        <IconButton onClick={() => onDelete(book)}>
           <Delete />
         </IconButton>
       </TableCell>
       <TableCell>
-        <IconButton onClick={() => handleShowForm(book)}>
+        <IconButton onClick={() => onEdit(book)}>
           <Edit />
         </IconButton>
       </TableCell>

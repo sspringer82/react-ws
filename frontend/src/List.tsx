@@ -120,9 +120,9 @@ function List(): ReactElement {
               <ListItem
                 key={book.id}
                 book={book}
-                handleDelete={handleDelete}
-                handleShowForm={handleShowForm}
-                handleRate={handleRate}
+                onDelete={handleDelete}
+                onEdit={handleShowForm}
+                onRate={handleRate}
               />
             ))}
           </TableBody>

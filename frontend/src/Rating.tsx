@@ -4,18 +4,18 @@ import { ReactElement } from 'react';
 import { Book } from './Book';
 
 type Props = {
-  handleRate: (book: Book, rating: number) => void;
   book: Book;
+  onRate: (book: Book, rating: number) => void;
 };
 
-function Rating({ book, handleRate }: Props): ReactElement {
+function Rating({ book, onRate }: Props): ReactElement {
   return (
     <>
       {Array(5)
         .fill('')
         .map((e, i) => {
           return (
-            <IconButton onClick={() => handleRate(book, i + 1)} key={i}>
+            <IconButton onClick={() => onRate(book, i + 1)} key={i}>
               {book.rating < i + 1 ? <StarBorder /> : <Star />}
             </IconButton>
           );
