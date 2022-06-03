@@ -1,4 +1,4 @@
-import { Add, Delete, Edit, Star, StarBorder } from '@mui/icons-material';
+import { Add, Delete, Edit } from '@mui/icons-material';
 import {
   Fab,
   IconButton,
@@ -13,6 +13,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { Book, InputBook } from './Book';
 import produce from 'immer';
 import Form from './Form';
+import Rating from './Rating';
 
 function List(): ReactElement {
   const [books, setBooks] = useState<Book[]>([]);
@@ -122,18 +123,7 @@ function List(): ReactElement {
                 <TableCell>{book.author}</TableCell>
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>
-                  {Array(5)
-                    .fill('')
-                    .map((e, i) => {
-                      return (
-                        <IconButton
-                          onClick={() => handleRate(book, i + 1)}
-                          key={i}
-                        >
-                          {book.rating < i + 1 ? <StarBorder /> : <Star />}
-                        </IconButton>
-                      );
-                    })}
+                  <Rating book={book} handleRate={handleRate} />
                 </TableCell>
                 <TableCell>
                   <IconButton onClick={() => handleDelete(book)}>
