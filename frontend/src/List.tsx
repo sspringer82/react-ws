@@ -1,7 +1,6 @@
-import { Add, Delete, Edit } from '@mui/icons-material';
+import { Add } from '@mui/icons-material';
 import {
   Fab,
-  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -13,7 +12,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { Book, InputBook } from './Book';
 import produce from 'immer';
 import Form from './Form';
-import Rating from './Rating';
+import ListItem from './ListItem';
 
 function List(): ReactElement {
   const [books, setBooks] = useState<Book[]>([]);
@@ -118,24 +117,13 @@ function List(): ReactElement {
 
           <TableBody>
             {books.map((book) => (
-              <TableRow key={book.id}>
-                <TableCell>{book.title}</TableCell>
-                <TableCell>{book.author}</TableCell>
-                <TableCell>{book.isbn}</TableCell>
-                <TableCell>
-                  <Rating book={book} handleRate={handleRate} />
-                </TableCell>
-                <TableCell>
-                  <IconButton onClick={() => handleDelete(book)}>
-                    <Delete />
-                  </IconButton>
-                </TableCell>
-                <TableCell>
-                  <IconButton onClick={() => handleShowForm(book)}>
-                    <Edit />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
+              <ListItem
+                key={book.id}
+                book={book}
+                handleDelete={handleDelete}
+                handleShowForm={handleShowForm}
+                handleRate={handleRate}
+              />
             ))}
           </TableBody>
         </Table>
