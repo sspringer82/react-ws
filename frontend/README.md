@@ -10,3 +10,9 @@
 - https://www.npmjs.com/package/prop-types
 - https://flow.org/
 - https://www.typescriptlang.org/
+- https://github.com/brillout/awesome-react-components
+- https://project-awesome.org/enaqx/awesome-react
+- https://formik.org/
+- https://reactjs.org/docs/hooks-rules.html
+- https://overreacted.io/
+- https://beta-reactjs-org-git-effects-fbopensource.vercel.app/learn/synchronizing-with-effects

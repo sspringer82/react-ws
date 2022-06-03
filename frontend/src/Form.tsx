@@ -1,14 +1,10 @@
 import { Box, Button, TextField } from '@mui/material';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { InputBook } from './Book';
 import { Form as FormikForm, Formik, ErrorMessage } from 'formik';
 import validationSchema from './validationSchema';
-
-type Props = {
-  book?: InputBook;
-  onSave: (book: InputBook) => void;
-  onCancel: () => void;
-};
+import { useParams, useNavigate } from 'react-router-dom';
+import useBooks from './useBooks';
 
 const initialBook: InputBook = {
   title: '',
@@ -16,7 +12,28 @@ const initialBook: InputBook = {
   isbn: '',
 };
 
-function Form({ book = initialBook, onSave, onCancel }: Props): ReactElement {
+function Form(): ReactElement {
+  const [book, setBook] = useState<InputBook>(initialBook);
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { handleSave } = useBooks();
+
+  useEffect(() => {
+    if (id) {
+      fetch(`http://localhost:3001/books/${id}`)
+        .then((response) => response.json())
+        .then((data) => setBook(data));
+    }
+  }, [id]);
+
+  function onSave(book: InputBook) {
+    handleSave(book);
+    navigate('/');
+  }
+  function onCancel() {
+    navigate('/');
+  }
+
   return (
     <Formik
       initialValues={book}
@@ -49,7 +66,7 @@ function Form({ book = initialBook, onSave, onCancel }: Props): ReactElement {
                   name="author"
                   onChange={handleChange}
                   margin="normal"
-                  sx={{ border: errors.author ? '1px solid red' : 'none' }}
+                  sx={{ border: errors.title ? '1px solid red' : 'none' }}
                 />
                 <ErrorMessage name="author" component="div" />
               </div>
@@ -60,7 +77,7 @@ function Form({ book = initialBook, onSave, onCancel }: Props): ReactElement {
                   name="isbn"
                   onChange={handleChange}
                   margin="normal"
-                  sx={{ border: errors.isbn ? '1px solid red' : 'none' }}
+                  sx={{ border: errors.title ? '1px solid red' : 'none' }}
                 />
                 <ErrorMessage name="isbn" component="div" />
               </div>

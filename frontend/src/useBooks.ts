@@ -12,7 +12,6 @@ type ReturnValue = {
 
 function useBooks(): ReturnValue {
   const [books, setBooks] = useContext(BooksContext);
-
   useEffect(() => {
     fetch('http://localhost:3001/books')
       .then((response) => response.json())
@@ -54,7 +53,7 @@ function useBooks(): ReturnValue {
     }
   }
 
-  function handleSave(book: InputBook) {
+  function handleSave(book: InputBook): void {
     let url = 'http://localhost:3001/books';
     const config = {
       method: 'POST',

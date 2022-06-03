@@ -3,7 +3,7 @@ import { Book } from './Book';
 import BooksContext from './BooksContext';
 
 type Props = {
-  children: ReactElement[] | ReactElement;
+  children: ReactElement[];
 };
 
 function BooksProvider({ children }: Props): ReactElement {

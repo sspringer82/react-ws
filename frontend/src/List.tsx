@@ -9,14 +9,13 @@ import {
   TableRow,
 } from '@mui/material';
 import { ReactElement } from 'react';
-import Form from './Form';
 import ListItem from './ListItem';
+import { Link, useNavigate } from 'react-router-dom';
 import useBooks from './useBooks';
-import useForm from './useForm';
 
 function List(): ReactElement {
-  const { books, handleRate, handleDelete, handleSave } = useBooks();
-  const { showForm, edit, handleShowForm, hideForm } = useForm();
+  const { books, handleRate, handleDelete } = useBooks();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -38,26 +37,16 @@ function List(): ReactElement {
                 key={book.id}
                 book={book}
                 onDelete={handleDelete}
-                onEdit={handleShowForm}
+                onEdit={() => navigate(`/edit/${book.id}`)}
                 onRate={handleRate}
               />
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Fab onClick={() => handleShowForm(undefined)}>
+      <Fab component={Link} to="/new">
         <Add />
       </Fab>
-      {showForm && (
-        <Form
-          onSave={(book) => {
-            handleSave(book);
-            hideForm();
-          }}
-          book={edit}
-          onCancel={hideForm}
-        />
-      )}
     </>
   );
 }
