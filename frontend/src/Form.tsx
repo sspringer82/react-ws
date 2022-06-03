@@ -1,17 +1,11 @@
 import { Box, Button, TextField } from '@mui/material';
-import produce from 'immer';
-import { WritableDraft } from 'immer/dist/internal';
-import {
-  ChangeEvent,
-  FormEvent,
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react';
+import { ReactElement } from 'react';
 import { InputBook } from './Book';
+import { Form as FormikForm, Formik, ErrorMessage } from 'formik';
+import validationSchema from './validationSchema';
 
 type Props = {
-  book?: InputBook | null;
+  book?: InputBook;
   onSave: (book: InputBook) => void;
   onCancel: () => void;
 };
@@ -22,68 +16,70 @@ const initialBook: InputBook = {
   isbn: '',
 };
 
-function Form({ book, onSave, onCancel }: Props): ReactElement {
-  const [formState, setFormState] = useState<InputBook>(initialBook);
-
-  useEffect(() => {
-    if (book) {
-      setFormState(book);
-    }
-  }, [book]);
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setFormState((prevState) =>
-      produce(prevState, (draftState) => {
-        draftState[e.target.name as keyof WritableDraft<InputBook>] = e.target
-          .value as never;
-      })
-    );
-  }
-
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    onSave(formState);
-  }
-
-  function handleCancel() {
-    setFormState(initialBook);
-    onCancel();
-  }
-
+function Form({ book = initialBook, onSave, onCancel }: Props): ReactElement {
   return (
-    <Box>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <TextField
-            label="Title"
-            value={formState.title}
-            name="title"
-            onChange={handleChange}
-            margin="normal"
-          />
-        </div>
-        <div>
-          <TextField
-            label="Author"
-            value={formState.author}
-            name="author"
-            onChange={handleChange}
-            margin="normal"
-          />
-        </div>
-        <div>
-          <TextField
-            label="ISBN"
-            value={formState.isbn}
-            name="isbn"
-            onChange={handleChange}
-            margin="normal"
-          />
-        </div>
-        <Button type="submit">save</Button>
-        <Button onClick={handleCancel}>cancel</Button>
-      </form>
-    </Box>
+    <Formik
+      initialValues={book}
+      validationSchema={validationSchema}
+      enableReinitialize
+      onSubmit={(event, actions) => {
+        onSave(event);
+        actions.setSubmitting(false);
+      }}
+    >
+      {({ isSubmitting, values, handleChange, errors, resetForm }) => {
+        return (
+          <Box>
+            <FormikForm>
+              <div style={{ display: 'flexbox', flexDirection: 'column' }}>
+                <TextField
+                  label="Title"
+                  value={values.title}
+                  name="title"
+                  onChange={handleChange}
+                  margin="normal"
+                  sx={{ border: errors.title ? '1px solid red' : 'none' }}
+                />
+                <ErrorMessage name="title" component="div" />
+              </div>
+              <div>
+                <TextField
+                  label="Author"
+                  value={values.author}
+                  name="author"
+                  onChange={handleChange}
+                  margin="normal"
+                  sx={{ border: errors.author ? '1px solid red' : 'none' }}
+                />
+                <ErrorMessage name="author" component="div" />
+              </div>
+              <div>
+                <TextField
+                  label="ISBN"
+                  value={values.isbn}
+                  name="isbn"
+                  onChange={handleChange}
+                  margin="normal"
+                  sx={{ border: errors.isbn ? '1px solid red' : 'none' }}
+                />
+                <ErrorMessage name="isbn" component="div" />
+              </div>
+              <Button type="submit" disabled={isSubmitting}>
+                save
+              </Button>
+              <Button
+                onClick={() => {
+                  resetForm();
+                  onCancel();
+                }}
+              >
+                cancel
+              </Button>
+            </FormikForm>
+          </Box>
+        );
+      }}
+    </Formik>
   );
 }
 

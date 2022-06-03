@@ -45,7 +45,7 @@ function List(): ReactElement {
           </TableBody>
         </Table>
       </TableContainer>
-      <Fab onClick={() => handleShowForm(null)}>
+      <Fab onClick={() => handleShowForm(undefined)}>
         <Add />
       </Fab>
       {showForm && (
