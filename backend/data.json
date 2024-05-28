@@ -1,0 +1,166 @@
+{
+  "books": [
+    {
+      "id": "9780451524935",
+      "title": "1984",
+      "author": "George Orwell",
+      "publishedDate": "1949-06-08",
+      "pages": 328,
+      "price": 9.99,
+      "rating": 3
+    },
+    {
+      "id": "9780743273565",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publishedDate": "1925-04-10",
+      "pages": 180,
+      "price": 10.99,
+      "rating": 2
+    },
+    {
+      "id": "9780140283334",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publishedDate": "1960-07-11",
+      "pages": 281,
+      "price": 8.99,
+      "rating": 3
+    },
+    {
+      "id": "9780553573404",
+      "title": "A Game of Thrones",
+      "author": "George R.R. Martin",
+      "publishedDate": "1996-08-06",
+      "pages": 694,
+      "price": 14.99,
+      "rating": 4
+    },
+    {
+      "id": "9780544003415",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "publishedDate": "1937-09-21",
+      "pages": 310,
+      "price": 12.99,
+      "rating": 5
+    },
+    {
+      "id": "9780307269751",
+      "title": "The Road",
+      "author": "Cormac McCarthy",
+      "publishedDate": "2006-09-26",
+      "pages": 287,
+      "price": 9.99,
+      "rating": 3
+    },
+    {
+      "id": "9780439139601",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "author": "J.K. Rowling",
+      "publishedDate": "1999-07-08",
+      "pages": 435,
+      "price": 11.99,
+      "rating": 4
+    },
+    {
+      "id": "9780679783268",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "publishedDate": "1813-01-28",
+      "pages": 279,
+      "price": 7.99,
+      "rating": 2
+    },
+    {
+      "id": "9780743477116",
+      "title": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "publishedDate": "1597-01-01",
+      "pages": 121,
+      "price": 5.99,
+      "rating": 1
+    },
+    {
+      "id": "9780143124542",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "publishedDate": "1951-07-16",
+      "pages": 214,
+      "price": 6.99,
+      "rating": 4
+    },
+    {
+      "id": "9780307387899",
+      "title": "Life of Pi",
+      "author": "Yann Martel",
+      "publishedDate": "2001-09-11",
+      "pages": 354,
+      "price": 9.99,
+      "rating": 5
+    },
+    {
+      "id": "9780061120084",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "publishedDate": "1932-08-18",
+      "pages": 268,
+      "price": 7.99,
+      "rating": 4
+    },
+    {
+      "id": "9780140447934",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "publishedDate": "1866-01-01",
+      "pages": 671,
+      "price": 10.99,
+      "rating": 3
+    },
+    {
+      "id": "9781501139154",
+      "title": "It",
+      "author": "Stephen King",
+      "publishedDate": "1986-09-15",
+      "pages": 1138,
+      "price": 15.99,
+      "rating": 5
+    },
+    {
+      "id": "9781400079988",
+      "title": "The Kite Runner",
+      "author": "Khaled Hosseini",
+      "publishedDate": "2003-05-29",
+      "pages": 372,
+      "price": 8.99,
+      "rating": 4
+    },
+    {
+      "id": "9780316769488",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "publishedDate": "1951-07-16",
+      "pages": 214,
+      "price": 6.99,
+      "rating": 2
+    },
+    {
+      "id": "9780451526342",
+      "title": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "publishedDate": "1844-08-28",
+      "pages": 1276,
+      "price": 11.99,
+      "rating": 1
+    },
+    {
+      "id": "9780140447934",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "publishedDate": "1866-01-01",
+      "pages": 671,
+      "price": 10.99,
+      "rating": 4
+    }
+  ]
+}
