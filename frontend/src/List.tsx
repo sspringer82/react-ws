@@ -53,13 +53,15 @@ const List: React.FC = () => {
       <table>
         <thead>
           <tr>
+            <th>Nr.</th>
             <th>Titel</th>
             <th>Autor</th>
           </tr>
         </thead>
         <tbody>
-          {books.map((book) => (
+          {books.map((book, index) => (
             <tr key={book.id}>
+              <td>{index + 1}</td>
               <td>{book.title}</td>
               <td>{book.author}</td>
             </tr>
