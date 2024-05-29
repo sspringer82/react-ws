@@ -152,15 +152,6 @@
       "pages": 1276,
       "price": 11.99,
       "rating": 1
-    },
-    {
-      "id": "9780140447934",
-      "title": "Crime and Punishment",
-      "author": "Fyodor Dostoevsky",
-      "publishedDate": "1866-01-01",
-      "pages": 671,
-      "price": 10.99,
-      "rating": 4
     }
   ]
 }
