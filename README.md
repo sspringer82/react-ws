@@ -12,6 +12,9 @@
 - https://github.com/sindresorhus/eslint-plugin-unicorn - kann man machen, muss man aber nicht
 - https://reactnative.dev/
 - https://docs.pmnd.rs/react-three-fiber
+- StrictMode: https://react.dev/reference/react/StrictMode
+- https://github.com/airbnb/javascript
+- https://prettier.io/
 
 # Setup
 
