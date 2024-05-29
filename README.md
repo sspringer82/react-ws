@@ -19,6 +19,7 @@
 - https://react.dev/reference/react/Fragment
 - Destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://overreacted.io/a-complete-guide-to-useeffect/
+- Vite Proxy: https://vitejs.dev/config/server-options#server-proxy
 
 # Setup
 
