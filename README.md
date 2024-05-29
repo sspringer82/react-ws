@@ -17,6 +17,8 @@
 - https://prettier.io/
 - React Dev tools: https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1
 - https://react.dev/reference/react/Fragment
+- Destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://overreacted.io/a-complete-guide-to-useeffect/
 
 # Setup
 

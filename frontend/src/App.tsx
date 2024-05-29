@@ -1,8 +1,11 @@
 import './App.css';
-import List from './List';
+import LoopsConditions from './examples/LoopsConditions';
 
-function App() {
-  return <List />;
-}
+// function App() {
+// const App: React.FC = function () {
+// function App(): React.ReactNode {
+const App: React.FC = () => {
+  return <LoopsConditions />;
+};
 
 export default App;
