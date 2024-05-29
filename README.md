@@ -15,6 +15,8 @@
 - StrictMode: https://react.dev/reference/react/StrictMode
 - https://github.com/airbnb/javascript
 - https://prettier.io/
+- React Dev tools: https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1
+- https://react.dev/reference/react/Fragment
 
 # Setup
 
