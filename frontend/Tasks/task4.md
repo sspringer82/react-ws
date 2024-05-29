@@ -7,7 +7,7 @@
    2. State aktualisieren und den gelöschten Datensatz entfernen
 
 ```ts
-fetch('/path', {
+fetch('/api/books/' + id, {
   method: 'DELETE'
 })
 ```
