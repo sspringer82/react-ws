@@ -45,10 +45,23 @@ const List: React.FC = () => {
   }, []);
 
   async function handleDelete(id: string): Promise<void> {
-    await removeBook(id);
-    setBooks((prevBooks) => {
-      return prevBooks.filter((b) => b.id !== id);
-    });
+    /*
+    removeBook(id)
+      .then(() => {
+        setBooks((prevBooks) => {
+          return prevBooks.filter((b) => b.id !== id);
+        });
+      })
+      .catch((serverError) => setError(serverError));
+      */
+    try {
+      await removeBook(id);
+      setBooks((prevBooks) => {
+        return prevBooks.filter((b) => b.id !== id);
+      });
+    } catch (serverError) {
+      setError(serverError as string);
+    }
   }
 
   let content: React.ReactNode | null = null;
