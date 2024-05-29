@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Book } from './Book';
+import { fetchBooks } from './book.api';
 
 const initialBooks: Book[] = [
   {
@@ -33,20 +34,22 @@ const initialBooks: Book[] = [
 
 const List: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    setTimeout(() => {
-      setBooks(initialBooks);
-    }, 3000);
+    fetchBooks()
+      .then((data) => setBooks(data))
+      .catch((serverError) => {
+        setError(serverError);
+      });
   }, []);
 
-  if (books.length === 0) {
-    return <div>Keine Daten</div>;
-  }
+  let content: React.ReactNode | null = null;
 
-  return (
-    <>
-      <h1>List works</h1>
+  if (books.length === 0) {
+    content = <div>Keine Daten</div>;
+  } else {
+    content = (
       <table>
         <thead>
           <tr>
@@ -63,6 +66,14 @@ const List: React.FC = () => {
           ))}
         </tbody>
       </table>
+    );
+  }
+
+  return (
+    <>
+      <h1>List works</h1>
+      {error && <div>{error.toString()}</div>}
+      {content}
     </>
   );
 };
