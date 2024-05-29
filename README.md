@@ -8,6 +8,10 @@
 - https://npmtrends.com/
 - https://react.dev/
 - NICHT NUTZEN: https://create-react-app.dev/
+- https://eslint.org/
+- https://github.com/sindresorhus/eslint-plugin-unicorn - kann man machen, muss man aber nicht
+- https://reactnative.dev/
+- https://docs.pmnd.rs/react-three-fiber
 
 # Setup
 
