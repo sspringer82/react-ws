@@ -20,6 +20,10 @@
 - Destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://overreacted.io/a-complete-guide-to-useeffect/
 - Vite Proxy: https://vitejs.dev/config/server-options#server-proxy
+- Immutability:
+  - https://github.com/kolodny/immutability-helper - leichtgewichtig aber wirre Syntax
+  - https://immerjs.github.io/immer/ - mittelschwergewichtig mit JS Proxies
+  - https://immutable-js.com/ - schwergewichtig weil neue Datentypen
 
 # Setup
 
