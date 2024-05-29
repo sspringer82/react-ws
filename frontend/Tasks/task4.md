@@ -12,5 +12,12 @@ fetch('/path', {
 })
 ```
 
+```ts
+setState((prevState) => {
+  const filteredState = prevState.filter(b => b.id !== id);
+  return filteredState;
+})
+```
+
 Bonus:
 Fehlermeldung, wenn Löschen nicht erfolgreich war (z.B. Tippfehler im Pfad)
