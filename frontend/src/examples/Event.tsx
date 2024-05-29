@@ -17,6 +17,7 @@ const Event: React.FC = () => {
         click me
       </button>
       <button onClick={() => removeElement(42)}>click me</button>
+      <button onMouseOver={() => console.log('mouseover')}>mouseover</button>
     </div>
   );
 };

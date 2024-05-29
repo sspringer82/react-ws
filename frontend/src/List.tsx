@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Book } from './Book';
-import { fetchBooks } from './book.api';
+import { fetchBooks, removeBook } from './book.api';
 
 const initialBooks: Book[] = [
   {
@@ -44,6 +44,13 @@ const List: React.FC = () => {
       });
   }, []);
 
+  async function handleDelete(id: string): Promise<void> {
+    await removeBook(id);
+    setBooks((prevBooks) => {
+      return prevBooks.filter((b) => b.id !== id);
+    });
+  }
+
   let content: React.ReactNode | null = null;
 
   if (books.length === 0) {
@@ -56,6 +63,7 @@ const List: React.FC = () => {
             <th>Nr.</th>
             <th>Titel</th>
             <th>Autor</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -64,6 +72,9 @@ const List: React.FC = () => {
               <td>{index + 1}</td>
               <td>{book.title}</td>
               <td>{book.author}</td>
+              <td>
+                <button onClick={() => handleDelete(book.id)}>löschen</button>
+              </td>
             </tr>
           ))}
         </tbody>
