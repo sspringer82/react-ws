@@ -1,0 +1,19 @@
+.cssImport {
+  color: darkblue;
+  background-color: aquamarine;
+  border: 2px solid green;
+}
+
+.clsxClass {
+  background-color: greenyellow;
+  padding: 5px;
+}
+
+.clsxClass2 {
+  color: darkblue;
+}
+
+.clsxClass3 {
+  border: 5px solid magenta;
+  background-color: hotpink;
+}

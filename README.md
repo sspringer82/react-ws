@@ -26,6 +26,10 @@
   - https://immutable-js.com/ - schwergewichtig weil neue Datentypen
 - https://www.typescriptlang.org/play/?#example/types-vs-interfaces
 - Utility Types: https://www.typescriptlang.org/docs/handbook/utility-types.html
+- https://tailwindcss.com/
+- Classname handling
+  - clsx: https://github.com/lukeed/clsx
+  - classnames: https://github.com/JedWatson/classnames
 
 # Setup
 
