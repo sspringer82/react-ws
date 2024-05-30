@@ -24,6 +24,8 @@
   - https://github.com/kolodny/immutability-helper - leichtgewichtig aber wirre Syntax
   - https://immerjs.github.io/immer/ - mittelschwergewichtig mit JS Proxies
   - https://immutable-js.com/ - schwergewichtig weil neue Datentypen
+- https://www.typescriptlang.org/play/?#example/types-vs-interfaces
+- Utility Types: https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 # Setup
 

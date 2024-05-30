@@ -31,7 +31,6 @@ const List: React.FC = () => {
   }
 
   let content: React.ReactNode | null = null;
-
   if (books.length === 0) {
     content = <div>Keine Daten</div>;
   } else {
