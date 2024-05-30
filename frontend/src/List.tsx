@@ -13,10 +13,10 @@ import {
   TableRow,
 } from '@mui/material';
 import Filter from './Filter';
-import Form from './Form';
 
 const List: React.FC = () => {
-  const [books, error, handleDelete, handleCreate] = useList<Book>(
+  const [books, error, handleDelete] = useList<Book>(
+    true,
     fetchBooks,
     removeBook,
     createBook
@@ -60,8 +60,6 @@ const List: React.FC = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <hr />
-        <Form save={handleCreate} />
       </>
     );
   }

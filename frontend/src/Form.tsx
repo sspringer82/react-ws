@@ -1,12 +1,12 @@
 import { Controller, useForm } from 'react-hook-form';
 import { Book } from './Book';
 import { Button, TextField } from '@mui/material';
+import useList from './useList';
+import { fetchBooks, removeBook, createBook } from './book.api';
 
-type Props = {
-  save: (book: Book) => Promise<Book | undefined>;
-};
+const Form: React.FC = () => {
+  const [, , , save] = useList(false, fetchBooks, removeBook, createBook);
 
-const Form: React.FC<Props> = ({ save }) => {
   const { handleSubmit, control, reset } = useForm<Book>({
     defaultValues: {
       id: '',

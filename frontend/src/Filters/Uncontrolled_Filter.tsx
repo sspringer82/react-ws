@@ -1,12 +1,12 @@
 import { Button, TextField } from '@mui/material';
-import { Dispatch, FormEvent, SetStateAction, useRef, useState } from 'react';
+import { Dispatch, FormEvent, SetStateAction, useRef } from 'react';
 
 type Props = {
   filter: string;
   setFilter: Dispatch<SetStateAction<string>>;
 };
 
-const Filter: React.FC<Props> = ({ filter, setFilter }) => {
+const Filter: React.FC<Props> = ({ setFilter }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(event: FormEvent) {
