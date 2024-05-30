@@ -26,3 +26,18 @@ export async function removeBook(id: string): Promise<void> {
     throw new Error('Whoops, da ist was schief gelaufen');
   }
 }
+
+export async function createBook(book: Book): Promise<Book> {
+  const response = await fetch(`${baseURL}/books/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  });
+  if (!response.ok) {
+    throw new Error('Whoops, da ist was schief gelaufen');
+  }
+
+  return response.json();
+}
