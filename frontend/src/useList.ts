@@ -5,7 +5,12 @@ export default function useList<T extends { id: string }>(
   fetcher: () => Promise<T[]>,
   remover: (id: string) => Promise<void>,
   creator: (item: T) => Promise<T>
-): [T[], string, (id: string) => Promise<void>, (item: T) => Promise<void>] {
+): [
+  T[],
+  string,
+  (id: string) => Promise<void>,
+  (item: T) => Promise<T | undefined>
+] {
   const [items, setItems] = useState<T[]>([]);
   const [error, setError] = useState('');
 
@@ -31,7 +36,7 @@ export default function useList<T extends { id: string }>(
     }
   }
 
-  async function handleCreate(item: T): Promise<void> {
+  async function handleCreate(item: T): Promise<T | undefined> {
     try {
       const newItem = await creator(item);
       setItems((prevItems) => {
@@ -39,6 +44,8 @@ export default function useList<T extends { id: string }>(
           draft.push(newItem as Draft<T>);
         });
       });
+
+      return newItem;
     } catch (serverError) {
       setError(serverError as string);
     }
