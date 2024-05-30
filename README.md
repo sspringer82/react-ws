@@ -27,9 +27,15 @@
 - https://www.typescriptlang.org/play/?#example/types-vs-interfaces
 - Utility Types: https://www.typescriptlang.org/docs/handbook/utility-types.html
 - https://tailwindcss.com/
+  - https://tailwindcss.com/docs/guides/vite
 - Classname handling
   - clsx: https://github.com/lukeed/clsx
   - classnames: https://github.com/JedWatson/classnames
+- Komponentenbibliotheken
+  - https://react-bootstrap.netlify.app/
+  - https://mui.com/material-ui/getting-started/
+- https://m3.material.io/
+- https://developer.apple.com/design/human-interface-guidelines
 
 # Setup
 
