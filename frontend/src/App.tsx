@@ -9,7 +9,7 @@ import Styling from './examples/Styling/Styling';
 // const App: React.FC = function () {
 // function App(): React.ReactNode {
 const App: React.FC = () => {
-  return <Uncontrolled />;
+  return <List />;
 };
 
 export default App;

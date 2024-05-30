@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material';
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 
 type Props = {
   filter: string;
@@ -7,19 +7,21 @@ type Props = {
 };
 
 const Filter: React.FC<Props> = ({ filter, setFilter }) => {
-  function handleSubmit(event: ChangeEvent<HTMLInputElement>) {
-    setFilter(event.target.value);
-  }
+  const [input, setInput] = useState(filter);
 
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    setFilter(input);
+  }
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
+    <form onSubmit={handleSubmit}>
       <label>
-        Filter:
+        Filter:{' '}
         <TextField
           label="filtern"
           type="text"
-          value={filter}
-          onChange={handleSubmit}
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
         />
         <Button type="submit">filtern</Button>
       </label>
