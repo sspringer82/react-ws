@@ -1,3 +1,5 @@
+import { IconButton, TableCell, TableRow } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Book } from './Book';
 
 type Props = {
@@ -7,13 +9,19 @@ type Props = {
 
 const ListItem: React.FC<Props> = ({ book, onDelete }) => {
   return (
-    <tr>
-      <td>{book.title}</td>
-      <td>{book.author}</td>
-      <td>
-        <button onClick={() => onDelete(book.id)}>löschen</button>
-      </td>
-    </tr>
+    <TableRow>
+      <TableCell>{book.title}</TableCell>
+      <TableCell>{book.author}</TableCell>
+      <TableCell>
+        <IconButton
+          aria-label={`${book.title} löschen`}
+          color="primary"
+          onClick={() => onDelete(book.id)}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </TableCell>
+    </TableRow>
   );
 };
 

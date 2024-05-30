@@ -3,10 +3,11 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const Material: React.FC = () => {
   return (
-    <Card sx={{ padding: 2 }}>
+    <Card sx={{ padding: 2, width: '400px' }}>
       <h1>Material UI</h1>
       <Button variant="outlined">Outlined</Button>
       <Slider defaultValue={30} aria-label=" slider" />
+
       <MenuBookIcon
         style={{
           color: 'lightyellow',

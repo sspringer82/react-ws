@@ -3,6 +3,15 @@ import ListItem from './ListItem';
 import useList from './useList';
 import { fetchBooks, removeBook } from './book.api';
 import { Book } from './Book';
+import {
+  Card,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
 
 const List: React.FC = () => {
   const [books, error, handleDelete] = useList<Book>(fetchBooks, removeBook);
@@ -14,20 +23,22 @@ const List: React.FC = () => {
     content = (
       <>
         <div>Es gibt {books.length} Bücher</div>
-        <table>
-          <thead>
-            <tr>
-              <th>Titel</th>
-              <th>Autor</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book) => (
-              <ListItem key={book.id} book={book} onDelete={handleDelete} />
-            ))}
-          </tbody>
-        </table>
+        <TableContainer component={Card}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Titel</TableCell>
+                <TableCell>Autor</TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {books.map((book) => (
+                <ListItem key={book.id} book={book} onDelete={handleDelete} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </>
     );
   }
