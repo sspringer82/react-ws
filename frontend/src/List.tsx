@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ListItem from './ListItem';
 import useList from './useList';
 import { fetchBooks, removeBook } from './book.api';
@@ -12,9 +12,12 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import Filter from './Filter';
 
 const List: React.FC = () => {
   const [books, error, handleDelete] = useList<Book>(fetchBooks, removeBook);
+
+  const [filter, setFilter] = useState('');
 
   let content: React.ReactNode | null = null;
   if (books.length === 0) {
@@ -22,7 +25,16 @@ const List: React.FC = () => {
   } else {
     content = (
       <>
-        <div>Es gibt {books.length} Bücher</div>
+        <div>
+          Es gibt{' '}
+          {
+            books.filter((book) =>
+              book.title.toLowerCase().includes(filter.toLowerCase())
+            ).length
+          }{' '}
+          Bücher
+        </div>
+        <Filter filter={filter} setFilter={setFilter} />
         <TableContainer component={Card}>
           <Table>
             <TableHead>
@@ -33,9 +45,13 @@ const List: React.FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {books.map((book) => (
-                <ListItem key={book.id} book={book} onDelete={handleDelete} />
-              ))}
+              {books
+                .filter((book) =>
+                  book.title.toLowerCase().includes(filter.toLowerCase())
+                )
+                .map((book) => (
+                  <ListItem key={book.id} book={book} onDelete={handleDelete} />
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
