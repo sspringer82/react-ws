@@ -18,3 +18,5 @@ Tipp:
 
 {books.filter(book => ...).map(book => ...)}
 ```
+
+`npm install immer`

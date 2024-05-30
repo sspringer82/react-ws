@@ -1,4 +1,4 @@
-import { Draft, produce } from 'immer';
+import { produce } from 'immer';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 type Data = {
