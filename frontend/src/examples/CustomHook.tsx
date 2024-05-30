@@ -14,10 +14,10 @@ function useMyHook(input: string): string[] {
   // return {value: value}; // wenn ich nicht immer alle Werte brauche, sondern nur ganz bestimmte
 }
 
-const arr: number[] = [1, 2, 3];
-const arr2: Array<number> = [1, 2, 3];
-const arr3: (number | string)[] = [1, '2', 3];
-const tupel: [string, number, string] = ['1', 2, '3'];
+// const arr: number[] = [1, 2, 3];
+// const arr2: Array<number> = [1, 2, 3];
+// const arr3: (number | string)[] = [1, '2', 3];
+// const tupel: [string, number, string] = ['1', 2, '3'];
 
 const CustomHook: React.FC = () => {
   const value = useMyHook('initial');
