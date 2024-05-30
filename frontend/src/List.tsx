@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ListItem from './ListItem';
 import useList from './useList';
-import { fetchBooks, removeBook } from './book.api';
+import { createBook, fetchBooks, removeBook } from './book.api';
 import { Book } from './Book';
 import {
   Card,
@@ -15,7 +15,11 @@ import {
 import Filter from './Filter';
 
 const List: React.FC = () => {
-  const [books, error, handleDelete] = useList<Book>(fetchBooks, removeBook);
+  const [books, error, handleDelete] = useList<Book>(
+    fetchBooks,
+    removeBook,
+    createBook
+  );
 
   const [filter, setFilter] = useState('');
 

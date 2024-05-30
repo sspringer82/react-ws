@@ -1,10 +1,11 @@
-import { produce } from 'immer';
+import { Draft, produce } from 'immer';
 import { useState, useEffect } from 'react';
 
 export default function useList<T extends { id: string }>(
   fetcher: () => Promise<T[]>,
-  remover: (id: string) => Promise<void>
-): [T[], string, (id: string) => Promise<void>] {
+  remover: (id: string) => Promise<void>,
+  creator: (item: T) => Promise<T>
+): [T[], string, (id: string) => Promise<void>, (item: T) => Promise<void>] {
   const [items, setItems] = useState<T[]>([]);
   const [error, setError] = useState('');
 
@@ -30,5 +31,18 @@ export default function useList<T extends { id: string }>(
     }
   }
 
-  return [items, error, handleDelete];
+  async function handleCreate(item: T): Promise<void> {
+    try {
+      const newItem = await creator(item);
+      setItems((prevItems) => {
+        return produce(prevItems, (draft) => {
+          draft.push(newItem as Draft<T>);
+        });
+      });
+    } catch (serverError) {
+      setError(serverError as string);
+    }
+  }
+
+  return [items, error, handleDelete, handleCreate];
 }
