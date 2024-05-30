@@ -8,7 +8,7 @@ import Server from './examples/Server';
 // const App: React.FC = function () {
 // function App(): React.ReactNode {
 const App: React.FC = () => {
-  return <Parent />;
+  return <List />;
 };
 
 export default App;

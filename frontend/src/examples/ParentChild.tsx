@@ -27,7 +27,7 @@ const Parent: React.FC = () => {
     <div>
       <h1>Parent works</h1>
       {state.map((p) => (
-        <Child person={p} rename={handleRename} />
+        <Child key={p.firstName} person={p} rename={handleRename} />
       ))}
     </div>
   );
