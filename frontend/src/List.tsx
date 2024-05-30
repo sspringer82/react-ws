@@ -13,9 +13,10 @@ import {
   TableRow,
 } from '@mui/material';
 import Filter from './Filter';
+import Form from './Form';
 
 const List: React.FC = () => {
-  const [books, error, handleDelete] = useList<Book>(
+  const [books, error, handleDelete, handleCreate] = useList<Book>(
     fetchBooks,
     removeBook,
     createBook
@@ -30,12 +31,12 @@ const List: React.FC = () => {
     content = (
       <>
         <div>
-          Es gibt{' '}
+          Es gibt
           {
             books.filter((book) =>
               book.title.toLowerCase().includes(filter.toLowerCase())
             ).length
-          }{' '}
+          }
           Bücher
         </div>
         <Filter filter={filter} setFilter={setFilter} />
@@ -59,6 +60,8 @@ const List: React.FC = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        <hr />
+        <Form save={handleCreate} />
       </>
     );
   }
