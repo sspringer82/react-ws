@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { produce } from 'immer';
 import { Book } from './Book';
 import { fetchBooks, removeBook } from './book.api';
 import ListItem from './ListItem';
@@ -19,7 +20,10 @@ const List: React.FC = () => {
     try {
       await removeBook(id);
       setBooks((prevBooks) => {
-        return prevBooks.filter((b) => b.id !== id);
+        return produce(prevBooks, (draft) => {
+          const index = draft.findIndex((b) => b.id === id);
+          draft.splice(index, 1);
+        });
       });
     } catch (serverError) {
       setError(serverError as string);
