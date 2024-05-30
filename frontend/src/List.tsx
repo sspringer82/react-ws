@@ -1,34 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { produce } from 'immer';
-import { Book } from './Book';
-import { fetchBooks, removeBook } from './book.api';
+import React from 'react';
 import ListItem from './ListItem';
+import useList from './useList';
+import { fetchBooks, removeBook } from './book.api';
+import { Book } from './Book';
 
 const List: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    fetchBooks()
-      .then((data) => setBooks(data))
-      .catch((serverError) => {
-        setError(serverError);
-      });
-  }, []);
-
-  async function handleDelete(id: string): Promise<void> {
-    try {
-      await removeBook(id);
-      setBooks((prevBooks) => {
-        return produce(prevBooks, (draft) => {
-          const index = draft.findIndex((b) => b.id === id);
-          draft.splice(index, 1);
-        });
-      });
-    } catch (serverError) {
-      setError(serverError as string);
-    }
-  }
+  const [books, error, handleDelete] = useList<Book>(fetchBooks, removeBook);
 
   let content: React.ReactNode | null = null;
   if (books.length === 0) {
