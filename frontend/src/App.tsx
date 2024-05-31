@@ -1,7 +1,19 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import { BooksProvider } from './BooksProvider';
-import Form from './Form';
 import List from './List';
+import RouterExample from './examples/RouterExample';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <List />,
+  },
+  {
+    path: '/example',
+    element: <RouterExample />,
+  },
+]);
 
 // function App() {
 // const App: React.FC = function () {
@@ -9,9 +21,7 @@ import List from './List';
 const App: React.FC = () => {
   return (
     <BooksProvider>
-      <List />
-      <hr />
-      <Form />
+      <RouterProvider router={router} />
     </BooksProvider>
   );
 };
