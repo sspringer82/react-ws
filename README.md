@@ -37,6 +37,12 @@
 - https://m3.material.io/
 - https://developer.apple.com/design/human-interface-guidelines
 - https://reactrouter.com/
+- https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367
+- Zentrales Statemanagement
+  - Redux: https://redux.js.org/
+  - XState: https://xstate.js.org/
+  - MobX: https://mobx.js.org/README.html
+  - Jotai: https://jotai.org/
 
 # Setup
 
