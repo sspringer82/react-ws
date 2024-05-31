@@ -15,6 +15,8 @@ describe('Button', () => {
     const button = screen.getAllByTestId('button');
 
     expect(button).toHaveLength(2);
+
+    expect(button[0]).toHaveTextContent('click me');
   });
 
   it('should execute the handler', () => {
@@ -25,5 +27,14 @@ describe('Button', () => {
 
     expect(handler).toHaveBeenCalled();
     expect(handler).toHaveBeenCalledTimes(1);
+  });
+
+  it('should have the correct label', () => {
+    const handler = vi.fn();
+    render(<Button onClick={handler} title="yet another button" />);
+
+    expect(screen.getByTestId('button')).toHaveTextContent(
+      'yet another button'
+    );
   });
 });
