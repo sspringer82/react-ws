@@ -12,13 +12,14 @@ type Props = {
 const ListItem: React.FC<Props> = ({ book, onDelete }) => {
   return (
     <TableRow>
-      <TableCell>{book.title}</TableCell>
-      <TableCell>{book.author}</TableCell>
+      <TableCell data-testid="title">{book.title}</TableCell>
+      <TableCell data-testid="author">{book.author}</TableCell>
       <TableCell>
         <IconButton
           aria-label={`${book.title} löschen`}
           color="primary"
           onClick={() => onDelete(book.id)}
+          data-testid="deleteButton"
         >
           <DeleteIcon />
         </IconButton>
