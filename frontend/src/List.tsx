@@ -49,7 +49,7 @@ const List: React.FC = () => {
               <TableRow>
                 <TableCell>Titel</TableCell>
                 <TableCell>Autor</TableCell>
-                <TableCell></TableCell>
+                <TableCell colSpan={2}></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

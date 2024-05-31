@@ -2,13 +2,24 @@ import { Controller, useForm } from 'react-hook-form';
 import { Book } from './Book';
 import { Button, TextField } from '@mui/material';
 import useList from './useList';
-import { fetchBooks, removeBook, createBook } from './book.api';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  fetchBooks,
+  removeBook,
+  createBook,
+  fetchBook,
+  updateBook,
+} from './book.api';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import './Form.css';
 
 const Form: React.FC = () => {
   const [, error, , save] = useList(false, fetchBooks, removeBook, createBook);
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const location = useLocation();
 
+  console.log(location);
   const { handleSubmit, control, reset } = useForm<Book>({
     defaultValues: {
       id: '',
@@ -21,9 +32,19 @@ const Form: React.FC = () => {
     },
   });
 
+  useEffect(() => {
+    if (id) {
+      fetchBook(id).then((data) => reset(data));
+    }
+  }, [id, reset]);
+
   async function onSubmit(data: Book) {
     try {
-      await save(data);
+      if (location.pathname.startsWith('/edit')) {
+        await updateBook(data);
+      } else {
+        await save(data);
+      }
       reset();
       navigate('/');
     } catch (error) {
@@ -38,28 +59,28 @@ const Form: React.FC = () => {
           Es ist ein Fehler aufgetreten
         </div>
       )}
-      <div>
+      <div className="formLine">
         <Controller
           name="id"
           control={control}
           render={({ field }) => <TextField label="ISBN" {...field} />}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="title"
           control={control}
           render={({ field }) => <TextField label="Titel" {...field} />}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="author"
           control={control}
           render={({ field }) => <TextField label="Autor" {...field} />}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="publishedDate"
           control={control}
@@ -68,21 +89,21 @@ const Form: React.FC = () => {
           )}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="pages"
           control={control}
           render={({ field }) => <TextField label="Seiten" {...field} />}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="price"
           control={control}
           render={({ field }) => <TextField label="Preis" {...field} />}
         />
       </div>
-      <div>
+      <div className="formLine">
         <Controller
           name="rating"
           control={control}

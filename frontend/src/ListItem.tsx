@@ -1,6 +1,8 @@
 import { IconButton, TableCell, TableRow } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Book } from './Book';
+import { Link } from 'react-router-dom';
+import { Edit } from '@mui/icons-material';
 
 type Props = {
   book: Book;
@@ -19,6 +21,16 @@ const ListItem: React.FC<Props> = ({ book, onDelete }) => {
           onClick={() => onDelete(book.id)}
         >
           <DeleteIcon />
+        </IconButton>
+      </TableCell>
+      <TableCell>
+        <IconButton
+          aria-label={`${book.title} bearbeiten`}
+          color="primary"
+          component={Link}
+          to={`/edit/${book.id}`}
+        >
+          <Edit />
         </IconButton>
       </TableCell>
     </TableRow>

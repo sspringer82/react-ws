@@ -41,3 +41,18 @@ export async function createBook(book: Book): Promise<Book> {
 
   return response.json();
 }
+
+export async function updateBook(book: Book): Promise<Book> {
+  const response = await fetch(`${baseURL}/books/${book.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  });
+  if (!response.ok) {
+    throw new Error('Whoops, da ist was schief gelaufen');
+  }
+
+  return response.json();
+}

@@ -18,6 +18,10 @@ const routerConfig = createBrowserRouter([
         element: <Form />,
       },
       {
+        path: '/edit/:id',
+        element: <Form />,
+      },
+      {
         path: '/example',
         element: <ExampleList />,
       },
