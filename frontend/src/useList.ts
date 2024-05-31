@@ -56,6 +56,7 @@ export default function useList<T extends { id: string }>(
       return newItem;
     } catch (serverError) {
       setError(serverError as string);
+      throw serverError;
     }
   }
 

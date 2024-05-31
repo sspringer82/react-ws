@@ -1,20 +1,16 @@
-import { Button } from '@mui/material';
-import { useEffect } from 'react';
+import { Add } from '@mui/icons-material';
+import { Button, Fab } from '@mui/material';
+// import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const RouterExample: React.FC = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigate('/');
-    }, 3000);
-  }, [navigate]);
-
-  function onSubmit() {
-    // hier die speicherlogik
-    navigate('/');
-  }
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate('/');
+  //   }, 3000);
+  // }, [navigate]);
 
   return (
     <div>
@@ -35,6 +31,16 @@ const RouterExample: React.FC = () => {
       >
         zur Liste mit code
       </Button>
+
+      <Fab
+        color="primary"
+        aria-label="add"
+        component={Link}
+        to="/"
+        sx={{ position: 'fixed', bottom: 20, right: 20 }}
+      >
+        <Add />
+      </Fab>
     </div>
   );
 };

@@ -2,16 +2,22 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import { BooksProvider } from './BooksProvider';
 import List from './List';
-import RouterExample from './examples/RouterExample';
+import Form from './Form';
+import Layout from './Layout';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <List />,
-  },
-  {
-    path: '/example',
-    element: <RouterExample />,
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <List />,
+      },
+      {
+        path: '/new',
+        element: <Form />,
+      },
+    ],
   },
 ]);
 

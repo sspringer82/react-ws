@@ -5,6 +5,7 @@ import { createBook, fetchBooks, removeBook } from './book.api';
 import { Book } from './Book';
 import {
   Card,
+  Fab,
   Table,
   TableBody,
   TableCell,
@@ -13,6 +14,8 @@ import {
   TableRow,
 } from '@mui/material';
 import Filter from './Filter';
+import { Link } from 'react-router-dom';
+import { Add } from '@mui/icons-material';
 
 const List: React.FC = () => {
   const [books, error, handleDelete] = useList<Book>(
@@ -69,6 +72,15 @@ const List: React.FC = () => {
       <h1>Unsere fröhliche Bücherliste📚</h1>
       {error && <div>{error.toString()}</div>}
       {content}
+      <Fab
+        color="primary"
+        aria-label="add"
+        component={Link}
+        to="/new"
+        sx={{ position: 'fixed', bottom: 20, right: 20 }}
+      >
+        <Add />
+      </Fab>
     </>
   );
 };
