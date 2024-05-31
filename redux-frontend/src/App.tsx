@@ -1,8 +1,8 @@
-import "./App.css"
-import List from "./features/books/List"
+import "./App.css";
+import List from "./features/books/List";
 
 const App = () => {
-  return <List />
-}
+  return <List />;
+};
 
-export default App
+export default App;

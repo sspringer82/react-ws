@@ -1,4 +1,4 @@
-import ListItem from "./ListItem"
+import ListItem from "./ListItem";
 import {
   Card,
   Fab,
@@ -8,30 +8,30 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@mui/material"
-import { Add } from "@mui/icons-material"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { loadBooks, selectBooks, selectStatus } from "./booksSlice"
-import { useEffect } from "react"
+} from "@mui/material";
+import { Add } from "@mui/icons-material";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { loadBooks, selectBooks, selectStatus } from "./booksSlice";
+import { useEffect } from "react";
 
 const List: React.FC = () => {
-  const dispatch = useAppDispatch()
-  const books = useAppSelector(selectBooks)
-  const status = useAppSelector(selectStatus)
+  const dispatch = useAppDispatch();
+  const books = useAppSelector(selectBooks);
+  const status = useAppSelector(selectStatus);
 
   useEffect(() => {
-    dispatch(loadBooks())
-  }, [dispatch])
+    dispatch(loadBooks());
+  }, [dispatch]);
 
   function handleDelete(id: string) {}
 
   if (status === "loading") {
-    return <div>lade...</div>
+    return <div>lade...</div>;
   }
 
-  let content: React.ReactNode | null = null
+  let content: React.ReactNode | null = null;
   if (books.length === 0) {
-    content = <div data-testid="noData">Keine Daten</div>
+    content = <div data-testid="noData">Keine Daten</div>;
   } else {
     content = (
       <>
@@ -57,7 +57,7 @@ const List: React.FC = () => {
           </Table>
         </TableContainer>
       </>
-    )
+    );
   }
 
   return (
@@ -73,7 +73,7 @@ const List: React.FC = () => {
         <Add />
       </Fab>
     </>
-  )
-}
+  );
+};
 
-export default List
+export default List;

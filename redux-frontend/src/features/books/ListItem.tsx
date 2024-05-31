@@ -1,12 +1,12 @@
-import { IconButton, TableCell, TableRow } from "@mui/material"
-import DeleteIcon from "@mui/icons-material/Delete"
-import type { Book } from "./Book"
-import { Edit } from "@mui/icons-material"
+import { IconButton, TableCell, TableRow } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import type { Book } from "./Book";
+import { Edit } from "@mui/icons-material";
 
 type Props = {
-  book: Book
-  onDelete: (id: string) => void
-}
+  book: Book;
+  onDelete: (id: string) => void;
+};
 
 const ListItem: React.FC<Props> = ({ book, onDelete }) => {
   return (
@@ -29,7 +29,7 @@ const ListItem: React.FC<Props> = ({ book, onDelete }) => {
         </IconButton>
       </TableCell>
     </TableRow>
-  )
-}
+  );
+};
 
-export default ListItem
+export default ListItem;
