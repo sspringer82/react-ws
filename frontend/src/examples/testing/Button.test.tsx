@@ -17,6 +17,7 @@ describe('Button', () => {
     expect(button).toHaveLength(2);
 
     expect(button[0]).toHaveTextContent('click me');
+    expect(button[1]).toBeVisible();
   });
 
   it('should execute the handler', () => {
