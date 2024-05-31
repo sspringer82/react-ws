@@ -11,6 +11,11 @@ const RouterExample: React.FC = () => {
     }, 3000);
   }, [navigate]);
 
+  function onSubmit() {
+    // hier die speicherlogik
+    navigate('/');
+  }
+
   return (
     <div>
       <h1>Router Example Works</h1>
