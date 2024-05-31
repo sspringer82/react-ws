@@ -1,12 +1,14 @@
 import { Draft, produce } from 'immer';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { useBooksContext } from './BooksProvider';
+import { useLocation } from 'react-router-dom';
 
 export default function useList<T extends { id: string }>(
   initial: boolean,
   fetcher: () => Promise<T[]>,
   remover: (id: string) => Promise<void>,
-  creator: (item: T) => Promise<T>
+  creator: (item: T) => Promise<T>,
+  updateor: (item: T) => Promise<T>
 ): [
   T[],
   string,
@@ -19,6 +21,7 @@ export default function useList<T extends { id: string }>(
     Dispatch<SetStateAction<T[]>>
   ];
   const [error, setError] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     if (initial) {
@@ -44,6 +47,14 @@ export default function useList<T extends { id: string }>(
     }
   }
 
+  async function handleSave(item: T): Promise<T | undefined> {
+    if (location.pathname.startsWith('/edit')) {
+      return handleUpdate(item);
+    } else {
+      handleCreate(item);
+    }
+  }
+
   async function handleCreate(item: T): Promise<T | undefined> {
     try {
       const newItem = await creator(item);
@@ -60,5 +71,22 @@ export default function useList<T extends { id: string }>(
     }
   }
 
-  return [items, error, handleDelete, handleCreate];
+  async function handleUpdate(item: T): Promise<T | undefined> {
+    try {
+      const updatedItem = await updateor(item);
+      setItems((prevItems) => {
+        return produce(prevItems, (draft) => {
+          const index = draft.findIndex((d) => d.id === updatedItem.id);
+          draft[index] = updatedItem as Draft<T>;
+        });
+      });
+
+      return updatedItem;
+    } catch (serverError) {
+      setError(serverError as string);
+      throw serverError;
+    }
+  }
+
+  return [items, error, handleDelete, handleSave];
 }

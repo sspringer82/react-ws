@@ -14,7 +14,13 @@ import { useEffect } from 'react';
 import './Form.css';
 
 const Form: React.FC = () => {
-  const [, error, , save] = useList(false, fetchBooks, removeBook, createBook);
+  const [, error, , save] = useList(
+    false,
+    fetchBooks,
+    removeBook,
+    createBook,
+    updateBook
+  );
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
@@ -40,11 +46,7 @@ const Form: React.FC = () => {
 
   async function onSubmit(data: Book) {
     try {
-      if (location.pathname.startsWith('/edit')) {
-        await updateBook(data);
-      } else {
-        await save(data);
-      }
+      await save(data);
       reset();
       navigate('/');
     } catch (error) {
