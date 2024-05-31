@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input > should render 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      data-testid="output"
+    />
+    <label>
+      Input:
+      <input
+        data-testid="input"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
