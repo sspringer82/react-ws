@@ -35,7 +35,7 @@ const List: React.FC = () => {
 
   let content: React.ReactNode | null = null;
   if (books.length === 0) {
-    content = <div>Keine Daten</div>;
+    content = <div data-testid="noData">Keine Daten</div>;
   } else {
     content = (
       <>
@@ -76,7 +76,7 @@ const List: React.FC = () => {
   return (
     <>
       <h1>Unsere fröhliche Bücherliste📚</h1>
-      {error && <div>{error.toString()}</div>}
+      {error && <div data-testid="error">{error.toString()}</div>}
       {content}
       <Fab
         color="primary"

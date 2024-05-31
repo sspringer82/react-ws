@@ -16,6 +16,7 @@ const Filter: React.FC<Props> = ({ filter, setFilter }) => {
       <label>
         Filter:
         <TextField
+          inputProps={{ 'data-testid': 'filter' }}
           label="filtern"
           type="text"
           value={filter}

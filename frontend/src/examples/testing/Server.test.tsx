@@ -5,15 +5,14 @@ import Server from './Server';
 import { setupServer } from 'msw/node';
 import { HttpResponse, http } from 'msw';
 
-const server =
-  setupServer();
-  // http.get('https://google.de', () => {
-  //   return HttpResponse.json([
-  //     { id: 1, name: 'Peter' },
-  //     { id: 2, name: 'Lisa' },
-  //     { id: 3, name: 'Klaus-Dieter' },
-  //   ]);
-  // })
+const server = setupServer();
+// http.get('https://google.de', () => {
+//   return HttpResponse.json([
+//     { id: 1, name: 'Peter' },
+//     { id: 2, name: 'Lisa' },
+//     { id: 3, name: 'Klaus-Dieter' },
+//   ]);
+// })
 
 describe('Server', () => {
   beforeAll(() => {
