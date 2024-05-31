@@ -1,25 +1,7 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { BooksProvider } from './BooksProvider';
-import List from './List';
-import Form from './Form';
-import Layout from './Layout';
-
-const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <List />,
-      },
-      {
-        path: '/new',
-        element: <Form />,
-      },
-    ],
-  },
-]);
+import routerConfig from './routerConfig';
 
 // function App() {
 // const App: React.FC = function () {
@@ -27,7 +9,7 @@ const router = createBrowserRouter([
 const App: React.FC = () => {
   return (
     <BooksProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={routerConfig} />
     </BooksProvider>
   );
 };
