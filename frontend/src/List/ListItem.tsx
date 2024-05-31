@@ -1,6 +1,6 @@
 import { IconButton, TableCell, TableRow } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Book } from './Book';
+import { Book } from '../util/Book';
 import { Link } from 'react-router-dom';
 import { Edit } from '@mui/icons-material';
 

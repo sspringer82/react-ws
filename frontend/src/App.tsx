@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import { BooksProvider } from './BooksProvider';
-import routerConfig from './routerConfig';
+import { BooksProvider } from './util/BooksProvider';
+import routerConfig from './util/routerConfig';
 
 // function App() {
 // const App: React.FC = function () {

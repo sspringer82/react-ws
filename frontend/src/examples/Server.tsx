@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Book } from '../Book';
-import { fetchBook } from '../book.api';
+import { Book } from '../util/Book';
+import { fetchBook } from '../api/book.api';
 
 const Server: React.FC = () => {
   const [book, setBook] = useState<Book>();

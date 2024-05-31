@@ -1,4 +1,4 @@
-import { Book } from './Book';
+import { Book } from '../util/Book';
 
 const baseURL = import.meta.env.VITE_BACKEND_URL;
 

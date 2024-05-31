@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
-import List from './List';
-import ExampleList from './examples/Params/List';
-import Form from './Form';
-import Detail from './examples/Params/Detail';
+import List from '../List/List';
+import ExampleList from '../examples/Params/List';
+import Form from '../Form/Form';
+import Detail from '../examples/Params/Detail';
 
 const routerConfig = createBrowserRouter([
   {

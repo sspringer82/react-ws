@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Book } from '../../Book';
-import { fetchBook } from '../../book.api';
+import { Book } from '../../util/Book';
+import { fetchBook } from '../../api/book.api';
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
