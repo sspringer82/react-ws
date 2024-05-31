@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { loadBooks, selectBooks, selectStatus } from "./booksSlice";
+import { loadBooks, removeBook, selectBooks, selectStatus } from "./booksSlice";
 import { useEffect } from "react";
 
 const List: React.FC = () => {
@@ -23,7 +23,9 @@ const List: React.FC = () => {
     dispatch(loadBooks());
   }, [dispatch]);
 
-  function handleDelete(id: string) {}
+  function handleDelete(id: string) {
+    dispatch(removeBook(id));
+  }
 
   if (status === "loading") {
     return <div>lade...</div>;

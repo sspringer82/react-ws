@@ -18,13 +18,14 @@ export async function fetchBooks(): Promise<Book[]> {
   return response.json();
 }
 
-export async function removeBook(id: string): Promise<void> {
+export async function removeBook(id: string): Promise<string> {
   const response = await fetch(`${baseURL}/books/${id}`, {
     method: "DELETE",
   });
   if (!response.ok) {
     throw new Error("Whoops, da ist was schief gelaufen");
   }
+  return id;
 }
 
 export async function createBook(book: Book): Promise<Book> {
