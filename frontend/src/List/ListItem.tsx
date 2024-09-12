@@ -14,6 +14,7 @@ const ListItem: React.FC<Props> = ({ book, onDelete }) => {
     <TableRow>
       <TableCell data-testid="title">{book.title}</TableCell>
       <TableCell data-testid="author">{book.author}</TableCell>
+      <TableCell data-testid="publishedDate">{book.publishedDate}</TableCell>
       <TableCell>
         <IconButton
           aria-label={`${book.title} löschen`}

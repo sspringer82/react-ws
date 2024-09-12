@@ -55,6 +55,8 @@ const List: React.FC = () => {
               <TableRow>
                 <TableCell>Titel</TableCell>
                 <TableCell>Autor</TableCell>
+                <TableCell>Datum</TableCell>
+
                 <TableCell colSpan={2}></TableCell>
               </TableRow>
             </TableHead>
